@@ -64,7 +64,7 @@ describe('features/modeling', function() {
         expect(xml).to.include('expressionLanguage="myScriptLanguage"');
       });
     }));
-    
+
   });
 
 });
