@@ -10,14 +10,12 @@
 
   .arrow-left(8px, 16px, #fff);
 
-  .datatype,
-  .allowed-values {
+  .datatype {
     max-width: 100%;
     padding: @dmn-vertical-padding @dmn-horizontal-padding;
   }
 
-  .ranged-values,
-  .allowed-values {
+  .ranged-values {
     max-height: 0;
     overflow: hidden;
     padding: 0 @dmn-horizontal-padding;
@@ -40,23 +38,15 @@
     }
   }
 
-  &.choices .allowed-values,
   &.range .ranged-values {
     padding: @dmn-horizontal-padding;
     max-height: 1000px;
   }
 
-  .allowed-values,
   .ranged-values {
     ul {
       max-height: 180px;
       overflow: auto;
-    }
-  }
-
-  .allowed-values {
-    input {
-      width: 100%;
     }
   }
 
