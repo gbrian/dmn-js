@@ -4,7 +4,7 @@ var TestHelper = require('../spec/helper');
 
 var domQuery = require('min-dom/lib/query');
 
-var mouseEvent = require('table-js/test/util/MouseEvents').performMouseEvent;
+var mouseEvent = require('table-js/test/util/DOMEvents').performMouseEvent;
 
 
 function clickElement(element) {
