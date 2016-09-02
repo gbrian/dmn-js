@@ -37,5 +37,29 @@ describe.only('features/string-edit/utils', function() {
         expect(result).to.eql({type: 'disjunction', values: ['foo', 'bar', 'baz']});
       });
     });
+
+    describe('negation', function() {
+      it('should recognize a simple negation', function() {
+        var result = utils.parseString('not("foo")');
+        expect(result).to.eql({type: 'negation', values: ['foo']});
+      });
+      it('should not recognize a negation of an expression', function() {
+        var result = utils.parseString('not(foo)');
+        expect(result).to.be.undefined;
+      });
+      it('should recognize a negation of a string list', function() {
+        var result = utils.parseString('not("foo", "bar", "baz")');
+        expect(result).to.eql({type: 'negation', values: ['foo', 'bar', 'baz']});
+      });
+      it('should not recognize a negation of a list containing an expression', function() {
+        var result = utils.parseString('not("foo", "bar", baz)');
+        expect(result).to.be.undefined;
+      });
+      it('should ignore leading and trailing whitespace', function() {
+        var result = utils.parseString('  not("foo", "bar", "baz")   ');
+        expect(result).to.eql({type: 'negation', values: ['foo', 'bar', 'baz']});
+      });
+    });
+
   });
 });
